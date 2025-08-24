@@ -12,6 +12,7 @@ public class GameData
     public PlayerComponent player;
     public CameraControllerComponent cameraController;
     public WeaponComponent currentWeapon;
+    public Vector3 joystick;
 
     [Header("Dictionaries and Lists")]
     public Dictionary<Transform, EnemyComponent> enemies = new Dictionary<Transform, EnemyComponent>();

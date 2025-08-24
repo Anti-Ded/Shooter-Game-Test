@@ -6,9 +6,9 @@ public class TargetingSystem : GameSystem
 
     public override void OnUpdate()
     {
-        if(!game.player.isDead)
+        if (!game.player.isDead && save.keyboardController)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition),out RaycastHit hit, 50, config.groundMask))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out RaycastHit hit, 50, config.groundMask))
             {
                 Vector3 pos = hit.point;
                 pos.y = game.player.transform.position.y;

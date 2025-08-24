@@ -21,6 +21,10 @@ public class WeaponComponent : MonoBehaviour
         this.game = game;
         ammo = weaponData.ammoMax;
     }
+    public string GetWeaponName()
+    {
+        return weaponData.name;
+    }
     public virtual void Fire()
     {
         game.pool.GetBullet(weaponData.name, pivots[pivotIndex]);

@@ -17,7 +17,7 @@ MonoBehaviour:
   shotgunDispersionAngle: 30
   list:
   - name: Pistols
-    damage: 10
+    damage: 25
     ammoMax: 12
     fireRatePerSec: 2
     reloadTime: 3

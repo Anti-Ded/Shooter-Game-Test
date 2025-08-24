@@ -6,4 +6,5 @@ public class SaveData
 {
     public int kills;
     public int deaths;
+    public bool keyboardController;
 }

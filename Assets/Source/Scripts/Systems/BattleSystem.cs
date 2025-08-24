@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -22,7 +23,17 @@ public class BattleSystem : GameSystem
 
         screen.restartButton.gameObject.SetActive(false);
         screen.restartButton.onClick.AddListener(Restart);
+        screen.switchWeaponText.text = game.currentWeapon.GetWeaponName();
+        screen.switchWeaponButton.onClick.AddListener(SwitchWeaponButton);
     }
+
+    void SwitchWeaponButton()
+    {
+        scrollValue++;
+        if (scrollValue == weapons.Count)
+            scrollValue = 0;
+    }
+
     void Restart()
     {
         SceneManager.LoadScene(0);
@@ -60,6 +71,7 @@ public class BattleSystem : GameSystem
             save.deaths++;
             game.saveLoad.Save();
             screen.restartButton.gameObject.SetActive(true);
+            screen.switchWeaponButton.gameObject.SetActive(false);
         }
     }
 
@@ -69,8 +81,6 @@ public class BattleSystem : GameSystem
         screen.killsText.text = "KILLS " + save.kills;
         screen.healthText.text = "HEALTH " + game.player.GetCurrentHealth();
         screen.ammoText.text = game.currentWeapon.GetCurrentStatus();
-
-        
     }
     private void WeaponSwitcher()
     {
@@ -82,7 +92,7 @@ public class BattleSystem : GameSystem
 
     private void CurrentWeaponFire()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !game.PointerOverUI())
             game.currentWeapon.OrderToFire(true);
         else if (Input.GetMouseButtonUp(0))
             game.currentWeapon.OrderToFire(false);
@@ -96,5 +106,6 @@ public class BattleSystem : GameSystem
         game.currentWeapon.OrderToFire(false);
         game.currentWeapon = weapons[index];
         game.currentWeapon.gameObject.SetActive(true);
+        screen.switchWeaponText.text = game.currentWeapon.GetWeaponName();
     }
 }

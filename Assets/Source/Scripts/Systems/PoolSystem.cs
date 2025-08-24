@@ -39,7 +39,7 @@ public class PoolSystem : GameSystem
         else
         {
             enemy = Instantiate(enemiesDict[name].prefab, pos, Quaternion.identity, transform);
-            EnemyHealthBarFrame frame = Instantiate(config.enemies.healthBarFrame, screen.transform);
+            EnemyHealthBarFrame frame = Instantiate(config.enemies.healthBarFrame, screen.floatingContent);
             frame.Prestart(game, enemy);
             enemy.SetFrame(frame);
         }

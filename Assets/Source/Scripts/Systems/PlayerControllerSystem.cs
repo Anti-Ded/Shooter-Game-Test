@@ -24,7 +24,15 @@ public class PlayerControllerSystem : GameSystem
                 moveVector -= Vector3.right;
         }
 
-        game.player.Move(moveVector);
+        if (save.keyboardController)
+            game.player.Move(moveVector);
+        else if (game.joystick != Vector3.zero)
+        {
+            game.player.Move(game.joystick);
+            Vector3 direction = game.joystick;
+            direction = Quaternion.Euler(game.cameraController.transform.eulerAngles) * direction;
+            game.player.transform.forward = direction;
+        }
     }
 
     private void OnApplicationFocus(bool focus)
