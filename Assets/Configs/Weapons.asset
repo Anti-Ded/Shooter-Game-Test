@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1a38b84018d5d24b81c47f625b87d63, type: 3}
+  m_Name: Weapons
+  m_EditorClassIdentifier: 
+  bulletLideTime: 5
+  shotgunBulletsCount: 8
+  shotgunDispersionAngle: 30
+  list:
+  - name: Pistols
+    damage: 10
+    ammoMax: 12
+    fireRatePerSec: 2
+    reloadTime: 3
+    speed: 6
+    weapon: {fileID: 1881091659600231934, guid: 44ab402b2df035f4ba568401c38fcf64, type: 3}
+    bullet: {fileID: 1437882127756005748, guid: 6458673fd047d744b911322648ce8ef1, type: 3}
+  - name: Mp5
+    damage: 6
+    ammoMax: 30
+    fireRatePerSec: 8
+    reloadTime: 4
+    speed: 7
+    weapon: {fileID: 2018916772177849662, guid: cd330ff0ce103d84fb416a810c04a92e, type: 3}
+    bullet: {fileID: 1437882127756005748, guid: 6458673fd047d744b911322648ce8ef1, type: 3}
+  - name: Shotgun
+    damage: 5
+    ammoMax: 8
+    fireRatePerSec: 1
+    reloadTime: 6
+    speed: 7
+    weapon: {fileID: 4407400354351569713, guid: 754e79cdc1de3794baa12045ef97029c, type: 3}
+    bullet: {fileID: 1437882127756005748, guid: 6458673fd047d744b911322648ce8ef1, type: 3}
